@@ -3,10 +3,11 @@ class Node:
         self.data = data
         self.next = next
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
-    
+
     def append(self, data):
         if self.head:
             curnode = self.head
@@ -21,7 +22,6 @@ class LinkedList:
             self._append(self.head, data)
         else:
             self.head = Node(data)
-
 
     def _append(self, node, data):
         if node.next is None:
@@ -54,10 +54,10 @@ class LinkedList:
             curnode = self.head
             count = 0
             while curnode:
-                if count == n-1:
+                if count == n - 1:
                     for_del = curnode.next
                     curnode.next = curnode.next.next
-                    return for_del.data          
+                    return for_del.data
                 count += 1
                 curnode = curnode.next
 
@@ -70,7 +70,7 @@ class LinkedList:
             return self._delete(self.head, 0, n)
 
     def _delete(self, node, count, n):
-        if count == n-1 and node.next:
+        if count == n - 1 and node.next:
             for_del = node.next
             node.next = node.next.next
             return for_del.data
@@ -84,14 +84,14 @@ class LinkedList:
                 self.head = Node(data, curnode)
                 return
             return self._insert(self.head, n, 0, data)
-        
+
     def _insert(self, node, n, count, data):
         if node:
-            if count == n-1:
+            if count == n - 1:
                 curnode = node.next
                 node.next = Node(data, curnode)
                 return
-            self._insert(node.next, n, count+1, data)
+            self._insert(node.next, n, count + 1, data)
 
     def print_list(self):
         if self.head:
@@ -100,20 +100,22 @@ class LinkedList:
                 print(curnode.data)
                 curnode = curnode.next
         else:
-            print('empty list')
+            print("empty list")
 
     # написаны не на занятии
 
+    # добавление списка элементов
     def append_list(self, data):
         for value in data:
             self.append(value)
 
+    # для печати в одной строке
     def print_list_in_line(self):
         if self.head:
             curnode = self.head
             while curnode:
-                print(curnode.data, '->', end = ' ')
+                print(curnode.data, "->", end=" ")
                 curnode = curnode.next
             print()
         else:
-            print('empty list')
+            print("empty list")

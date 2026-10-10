@@ -1,7 +1,9 @@
 from linked_list import LinkedList
 
 
-def reverse_linked_list(ll : LinkedList):
+# Сложность по времени O(n) - нужно пройтись по всем элементам списка один раз
+# Сложность по памяти O(1) - храним 3 указателя
+def reverse_linked_list(ll: LinkedList):
     prev_node = None
     curnode = ll.head
     while curnode:
