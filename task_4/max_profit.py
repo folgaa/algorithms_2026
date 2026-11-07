@@ -1,6 +1,10 @@
 # по времени: O(k * n) 
 # по памяти: O(n)
 def solver(prices, k):
+    if not prices:
+        return 0
+    if k > len(prices) / 2:
+        return sum(max(0, prices[i] - prices[i-1]) for i in range(1, len(prices)))
     arr = [0] * len(prices)
     for t in range(k):
         pos = -prices[0]
